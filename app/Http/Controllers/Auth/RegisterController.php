@@ -50,7 +50,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'mobile' => 'required|numeric|digits:11|unique:users,mobile',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -66,7 +67,22 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'mobile' => $data['mobile'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function redirectTo()
+    {
+        return Config('platform.redirectTo');
+    }
+
+    public function showRegistrationForm()
+    {
+        if(config('platform.enable-register')) {
+            return view('auth.register');
+        } else {
+            return redirect()->back();
+        }
     }
 }

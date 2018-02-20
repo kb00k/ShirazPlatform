@@ -7,6 +7,10 @@
 
 require('./bootstrap');
 
+
+window.$.fn.dataTable = require('datatables.net-bs4');
+
+
 window.Vue = require('vue');
 
 /**

@@ -12,6 +12,8 @@ return [
     // Zarinpal gateway
     //--------------------------------
     'zarinpal' => [
+        'enable' => 'no',
+        'title' => '',
         'merchant-id'  => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
         'type'         => 'zarin-gate',             // Types: [zarin-gate || normal]
         'callback-url' => '/',
@@ -25,6 +27,8 @@ return [
     // Mellat gateway
     //--------------------------------
     'mellat' => [
+        'enable' => 'no',
+        'title' => '',
         'username'     => '',
         'password'     => '',
         'terminalId'   => 0000000,
@@ -35,6 +39,8 @@ return [
     // Saman gateway
     //--------------------------------
     'saman' => [
+        'enable' => 'no',
+        'title' => '',
         'merchant'     => '',
         'password'     => '',
         'callback-url'   => '/',
@@ -44,6 +50,8 @@ return [
     // PayIr gateway
     //--------------------------------
     'payir'    => [
+        'enable' => 'no',
+        'title' => '',
         'api'          => 'xxxxxxxxxxxxxxxxxxxx',
         'callback-url' => '/'
     ],
@@ -52,6 +60,8 @@ return [
     // Sadad gateway
     //--------------------------------
     'sadad' => [
+        'enable' => 'no',
+        'title' => '',
         'merchant'      => '',
         'transactionKey'=> '',
         'terminalId'    => 000000000,
@@ -62,6 +72,8 @@ return [
     // Parsian gateway
     //--------------------------------
     'parsian' => [
+        'enable' => 'no',
+        'title' => '',
         'pin'          => 'xxxxxxxxxxxxxxxxxxxx',
         'callback-url' => '/'
     ],
@@ -69,6 +81,8 @@ return [
     // Pasargad gateway
     //--------------------------------
     'pasargad' => [
+        'enable' => 'no',
+        'title' => '',
         'terminalId'    => 000000,
         'merchantId'    => 000000,
         'certificate-path'    => storage_path('gateway/pasargad/certificate.xml'),
@@ -79,6 +93,8 @@ return [
     // Asan Pardakht gateway
     //--------------------------------
     'asanpardakht' => [
+        'enable' => 'no',
+        'title' => '',
         'merchantId'     => '',
         'merchantConfigId'     => '',
         'username' => '',
@@ -92,6 +108,8 @@ return [
     // Paypal gateway
     //--------------------------------
     'paypal'   => [
+        'enable' => 'no',
+        'title' => '',
         // Default product name that appear on paypal payment items
         'default_product_name' => 'My Product',
         'default_shipment_price' => 0,
@@ -118,6 +136,8 @@ return [
     // IranKish gateway
     //--------------------------------
     'irankish' => array(
+        'enable' => 'no',
+        'title' => '',
         'merchant-id' => 'xxxx',
         'sha1-key' => 'xxxxxxxxxxxxxxxxxxxx',
         'description' => 'description',
@@ -127,6 +147,8 @@ return [
     // Saderat gateway
     //--------------------------------
     'saderat' => array(
+        'enable' => 'no',
+        'title' => '',
         'merchant-id' => '999999999999999',
         'terminal-id' => '99999999',
         'public-key' => storage_path('/saderat-public-key.pem'),
