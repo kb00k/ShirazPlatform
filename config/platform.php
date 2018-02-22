@@ -25,7 +25,7 @@ return [
     'contact-us-page-id' => '3',
     'about-us-page-id' => '2',
     'index-page-id' => '1',
-    '' => '',
+    'main-admin-user-id' => '1',
     '' => '',
     '' => '',
     '' => '',

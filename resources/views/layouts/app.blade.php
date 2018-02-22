@@ -113,17 +113,14 @@
                     <a href="https://shirazsoft.com">قدرت گرفته از ShirazPlatform محصول گروه نرم افزاری شیراز</a>
                 </div>
                 <ul class="navbar-nav mr-auto">
+
                 @foreach($menus as $menu)
                     @if($menu->position == 'navbar-bottom')
-                        @guest
-                            @if($menu->register == 'no' )
-                                <li><a class="nav-link{{ Route::currentRouteName() == $menu->route ? ' active' : '' }}" href="{{ route($menu->route) }}"><i class="{{ $menu->icon }}"></i> {{ $menu->title }}</a></li>
-                            @endif
+                        @if($menu->register == 'yes' && Auth::check())
+                           <li><a class="nav-link{{ Route::currentRouteName() == $menu->route ? ' active' : '' }}" href="{{ route($menu->route) }}"><i class="{{ $menu->icon }}"></i> {{ $menu->title }}</a></li>
                         @else
-                            @if($menu->register == 'yes')
                                 <li><a class="nav-link{{ Route::currentRouteName() == $menu->route ? ' active' : '' }}" href="{{ route($menu->route) }}"><i class="{{ $menu->icon }}"></i> {{ $menu->title }}</a></li>
-                            @endif
-                        @endguest
+                        @endif
                     @endif
                 @endforeach
                 </ul>

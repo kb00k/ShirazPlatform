@@ -20,24 +20,24 @@ class CreatePagesTable extends Migration
             $table->text('description')->nullable();
             $table->longText('text')->nullable();
             $table->unsignedBigInteger('visit')->default(0);
-            $table->enum('level',['guest','user'])->default('guest');
+            $table->enum('access',['public','private'])->default('public');
             $table->timestamps();
             $table->softDeletes();
         });
         DB::table('pages')->insert([
             'title' => 'نرم افزار شیراز',
             'text' => 'Index',
-            'level' => 'guest',
+            'access' => 'public',
         ]);
         DB::table('pages')->insert([
             'title' => 'درباره ما',
             'text' => 'About US',
-            'level' => 'guest',
+            'access' => 'public',
         ]);
         DB::table('pages')->insert([
             'title' => 'تماس با ما',
             'text' => 'Contact US',
-            'level' => 'guest',
+            'access' => 'public',
         ]);
     }
 

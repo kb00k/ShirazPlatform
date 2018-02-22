@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ویرایش کاربر ' . $user->name .' - ')
+@section('title', 'ایجاد کاربر جدید - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -12,11 +12,11 @@
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.user') }}">مدیریت کاربرها</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.user.edit',['id' => $user->id]) }}">ویرایش کاربر {{ $user->name }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.user.create') }}">ایجاد کاربر جدید</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">
-                    <div class="card-header">ویرایش کاربر {{ $user->name }}
+                    <div class="card-header">ایجاد کاربر جدید
                     </div>
 
                     <div class="card-body">
@@ -27,7 +27,7 @@
                                 <label for="name" class="col-md-4 col-form-label @lang('platform.input-pull')">نام و نام خانوادگی</label>
 
                                 <div class="col-md-7">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name', $user->name) }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
@@ -41,7 +41,7 @@
                                 <label for="email" class="col-md-4 col-form-label @lang('platform.input-pull')">آدرس ایمیل</label>
 
                                 <div class="col-md-7">
-                                    <input id="email" type="email" dir="ltr" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email', $user->email) }}" required>
+                                    <input id="email" type="email" dir="ltr" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
@@ -55,7 +55,7 @@
                                 <label for="mobile" class="col-md-4 col-form-label @lang('platform.input-pull')">شماره همراه</label>
 
                                 <div class="col-md-7">
-                                    <input id="mobile" type="text" dir="ltr" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile', $user->mobile) }}" required>
+                                    <input id="mobile" type="text" dir="ltr" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required>
 
                                     @if ($errors->has('mobile'))
                                         <span class="invalid-feedback">
@@ -69,7 +69,7 @@
                                 <label for="password" class="col-md-4 col-form-label @lang('platform.input-pull')">کلمه عبور</label>
 
                                 <div class="col-md-7">
-                                    <input id="password" type="password" dir="ltr" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
+                                    <input id="password" type="password" dir="ltr" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback">
@@ -83,15 +83,15 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label @lang('platform.input-pull')">تکرار کلمه عبور</label>
 
                                 <div class="col-md-7">
-                                    <input id="password-confirm" dir="ltr" type="password" class="form-control" name="password_confirmation">
+                                    <input id="password-confirm" dir="ltr" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-save"></i>
-                                        ویرایش کاربر
+                                        <i class="fa fa-user-plus"></i>
+                                        ایجاد کاربر
                                     </button>
                                 </div>
                             </div>

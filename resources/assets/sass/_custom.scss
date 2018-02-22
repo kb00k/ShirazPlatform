@@ -33,3 +33,8 @@ table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable th:
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

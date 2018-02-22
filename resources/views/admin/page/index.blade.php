@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'مدیریت کاربرها - ')
+@section('title', 'مدیریت صفحه ها - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -11,12 +11,12 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.user') }}">مدیریت کاربرها</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.page') }}">مدیریت صفحه ها</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">
-                    <div class="card-header">مدیریت کاربرها
-                        <a href="{{route('admin.user.create')}}" class="btn btn-primary btn-sm pull-left"><i class="fa fa-plus-circle"></i> ایجاد کاربر جدید</a>
+                    <div class="card-header">مدیریت صفحه ها
+                        <a href="{{route('admin.page.create')}}" class="btn btn-primary btn-sm pull-left"><i class="fa fa-plus-circle"></i> ایجاد صفحه جدید</a>
                     </div>
 
                     <div class="card-body">
@@ -25,18 +25,16 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>نام و نام خانوادگی</th>
-                                <th>ایمیل</th>
-                                <th>شماره همراه</th>
+                                <th>عنوان</th>
+                                <th>نمایش</th>
                                 <th>اقدام ها</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>نام و نام خانوادگی</th>
-                                <th>ایمیل</th>
-                                <th>شماره همراه</th>
+                                <th>عنوان</th>
+                                <th>نمایش</th>
                                 <th>اقدام ها</th>
                             </tr>
                             </tfoot>
@@ -47,19 +45,17 @@
         </div>
     </div>
 @endsection
-
 @section('js')
     <script>
         $('#users').DataTable({
             processing: true,
             serverSide: true,
             responsive: true,
-            ajax: '{{ route('admin.user.data') }}',
+            ajax: '{{ route('admin.page.data') }}',
             columns: [
                 {data: 'id'},
-                {data: 'name'},
-                {data: 'email'},
-                {data: 'mobile'},
+                {data: 'title'},
+                {data: 'visit'},
                 {data: 'action', orderable: false, searchable: false}
             ],
             oLanguage:{
@@ -87,5 +83,4 @@
             }
         });
     </script>
-
 @endsection

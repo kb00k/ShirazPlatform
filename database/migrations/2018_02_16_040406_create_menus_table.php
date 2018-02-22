@@ -20,9 +20,21 @@ class CreateMenusTable extends Migration
             $table->enum('position',['admin-sidebar', 'user-sidebar', 'navbar-top', 'navbar-bottom'])->default('user-sidebar');
             $table->string('icon');
             $table->enum('active',['yes', 'no'])->default('yes');
-            $table->enum('register',['yes', 'no'])->default('no');
+            $table->enum('access',['public', 'private'])->default('public');
             $table->timestamps();
         });
+        DB::table('menus')->insert([
+            'title' => 'تماس با ما',
+            'route' => 'contact-us',
+            'icon' => 'fa fa-envelope-o',
+            'position' => 'navbar-bottom',
+        ]);
+        DB::table('menus')->insert([
+            'title' => 'درباره ما',
+            'route' => 'about-us',
+            'icon' => 'fa fa-info-circle',
+            'position' => 'navbar-bottom',
+        ]);
     }
 
     /**
