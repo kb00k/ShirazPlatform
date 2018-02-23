@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ایجاد کاربر جدید - ')
+@section('title', 'ایجاد صفحه جدید - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -11,8 +11,8 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.user') }}">مدیریت کاربرها</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.user.create') }}">ایجاد کاربر جدید</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.page') }}">مدیریت صفحه ها</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.page.create') }}">ایجاد صفحه جدید</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">

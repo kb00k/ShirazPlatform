@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.user.insert') }}">
+                        <form method="POST" action="{{ route('admin.user.update',['id' => $user->id]) }}">
                             @csrf
                             @method('post')
                             <div class="form-group row">

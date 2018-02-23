@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ویرایش کاربر ' . $user->name .' - ')
+@section('title', 'ویرایش صفحه ' . $page->title .' - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -11,16 +11,16 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.user') }}">مدیریت کاربرها</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.user.edit',['id' => $user->id]) }}">ویرایش کاربر {{ $user->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.page') }}">مدیریت صفحه ها</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.page.edit',['id' => $page->id]) }}">ویرایش صفحه {{ $page->title }}</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">
-                    <div class="card-header">ویرایش کاربر {{ $user->name }}
+                    <div class="card-header">ویرایش صفحه  {{ $page->title }}
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.user.insert') }}">
+                        <form method="POST" action="{{ route('admin.page.update',['id' => $page->id]) }}">
                             @csrf
                             @method('post')
                             <div class="form-group row">
