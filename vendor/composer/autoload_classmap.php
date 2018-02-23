@@ -1454,6 +1454,7 @@ return array(
     'Illuminate\\Support\\Testing\\Fakes\\PendingMailFake' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Testing/Fakes/PendingMailFake.php',
     'Illuminate\\Support\\Testing\\Fakes\\QueueFake' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Testing/Fakes/QueueFake.php',
     'Illuminate\\Support\\Traits\\CapsuleManagerTrait' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Traits/CapsuleManagerTrait.php',
+    'Illuminate\\Support\\Traits\\Localizable' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Traits/Localizable.php',
     'Illuminate\\Support\\Traits\\Macroable' => $vendorDir . '/laravel/framework/src/Illuminate/Support/Traits/Macroable.php',
     'Illuminate\\Support\\ViewErrorBag' => $vendorDir . '/laravel/framework/src/Illuminate/Support/ViewErrorBag.php',
     'Illuminate\\Translation\\ArrayLoader' => $vendorDir . '/laravel/framework/src/Illuminate/Translation/ArrayLoader.php',
