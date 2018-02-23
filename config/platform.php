@@ -19,7 +19,6 @@ return [
     'cache-time' => 1440,
     'enable-register' => 1,
     'menus-cache-time' => 999999999,
-    'slug' => 'توسعه نرم افزار های تحت وب',
     'header-position' => 'sticky-top',
     'footer-position' => 'sticky-bottom',
     'contact-us-page-id' => '3',

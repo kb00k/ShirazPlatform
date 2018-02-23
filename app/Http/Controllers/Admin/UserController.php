@@ -60,7 +60,7 @@ class UserController extends Controller
 
     public function update($id, Request $request)
     {
-        if($id == config('platform.main-admin-user-id') && َAuth::user()->id != config('platform.main-admin-user-id') ) {
+        if($id == config('platform.main-admin-user-id') && Auth::user()->id != config('platform.main-admin-user-id') ) {
             flash('شما نمی توانید مدیر اصلی سیستم را ویرایش کنید.')->error();
             return redirect()->route('admin.user');
         }
@@ -69,7 +69,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'mobile' => 'required|numeric|digits:11|unique:users,mobile,' . $user->id,
-            'password' => 'string|min:6|confirmed',
+            'password' => 'confirmed',
         ])->validate();
         $user->name = $request->name;
         $user->email = $request->email;

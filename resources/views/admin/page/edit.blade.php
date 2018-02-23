@@ -23,78 +23,54 @@
                         <form method="POST" action="{{ route('admin.page.update',['id' => $page->id]) }}">
                             @csrf
                             @method('post')
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label @lang('platform.input-pull')">نام و نام خانوادگی</label>
+                            <div class="form-group">
+                                <label for="title">عنوان</label>
+                                    <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title', $page->title) }}" required autofocus>
 
-                                <div class="col-md-7">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name', $user->name) }}" required autofocus>
-
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('title'))
                                         <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('title') }}</strong>
                                     </span>
                                     @endif
-                                </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label @lang('platform.input-pull')">آدرس ایمیل</label>
+                            <div class="form-group">
+                                <label for="description">توضیحات</label>
+                                    <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="description"> {{ old('description', $page->description) }}</textarea>
 
-                                <div class="col-md-7">
-                                    <input id="email" type="email" dir="ltr" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email', $user->email) }}" required>
-
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('description'))
                                         <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('description') }}</strong>
                                     </span>
                                     @endif
-                                </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="mobile" class="col-md-4 col-form-label @lang('platform.input-pull')">شماره همراه</label>
-
-                                <div class="col-md-7">
-                                    <input id="mobile" type="text" dir="ltr" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile', $user->mobile) }}" required>
-
-                                    @if ($errors->has('mobile'))
+                            <div class="form-group">
+                                <label for="text">محتوای صفحه</label>
+                                    <textarea class="form-control{{ $errors->has('text') ? ' is-invalid' : '' }}" name="text" id="text" required>{{ old('text', $page->text) }}</textarea>
+                                    @if ($errors->has('text'))
                                         <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('mobile') }}</strong>
+                                        <strong>{{ $errors->first('text') }}</strong>
                                     </span>
                                     @endif
-                                </div>
+
                             </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label @lang('platform.input-pull')">کلمه عبور</label>
-
-                                <div class="col-md-7">
-                                    <input id="password" type="password" dir="ltr" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
-
-                                    @if ($errors->has('password'))
+                            <div class="form-group">
+                                <label for="access">دسترسی</label>
+                                    <select name="access" id="access" class="form-control">
+                                        <option value="public"{{ old('access', $page->access) == 'public'  ? ' selected' : '' }}>عمومی</option>
+                                        <option value="private"{{ old('access', $page->access) == 'private' ? ' selected' : '' }}>فقط اعضا</option>
+                                    </select>
+                                    @if ($errors->has('access'))
                                         <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>{{ $errors->first('access') }}</strong>
                                     </span>
                                     @endif
-                                </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label @lang('platform.input-pull')">تکرار کلمه عبور</label>
-
-                                <div class="col-md-7">
-                                    <input id="password-confirm" dir="ltr" type="password" class="form-control" name="password_confirmation">
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-save"></i>
-                                        ویرایش کاربر
+                                        <i class="fa fa-user-plus"></i>
+                                        ایجاد صفحه
                                     </button>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -104,6 +80,8 @@
 @endsection
 
 @section('js')
-
-
+    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('text',{language: 'fa',contentsCss: "body {font-family: Vazir,Tahoma;}" });
+    </script>
 @endsection
