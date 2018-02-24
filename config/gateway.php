@@ -7,12 +7,20 @@ return [
     // If you want Gateway not set timezone, just leave it empty
     //--------------------------------
     'timezone' => 'Asia/Tehran',
-
+    //--------------------------------
+    // Receipt gateway
+    //--------------------------------
+    'receipt' => [
+        'enable' => 'yes',
+        'account_id' => '1',
+        'title' => 'فیش بانکی',
+    ],
     //--------------------------------
     // Zarinpal gateway
     //--------------------------------
     'zarinpal' => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'merchant-id'  => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
         'type'         => 'zarin-gate',             // Types: [zarin-gate || normal]
@@ -28,6 +36,7 @@ return [
     //--------------------------------
     'mellat' => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'username'     => '',
         'password'     => '',
@@ -40,6 +49,7 @@ return [
     //--------------------------------
     'saman' => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'merchant'     => '',
         'password'     => '',
@@ -51,6 +61,7 @@ return [
     //--------------------------------
     'payir'    => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'api'          => 'xxxxxxxxxxxxxxxxxxxx',
         'callback-url' => '/'
@@ -61,6 +72,7 @@ return [
     //--------------------------------
     'sadad' => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'merchant'      => '',
         'transactionKey'=> '',
@@ -73,6 +85,7 @@ return [
     //--------------------------------
     'parsian' => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'pin'          => 'xxxxxxxxxxxxxxxxxxxx',
         'callback-url' => '/'
@@ -82,6 +95,7 @@ return [
     //--------------------------------
     'pasargad' => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'terminalId'    => 000000,
         'merchantId'    => 000000,
@@ -94,6 +108,7 @@ return [
     //--------------------------------
     'asanpardakht' => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'merchantId'     => '',
         'merchantConfigId'     => '',
@@ -109,6 +124,7 @@ return [
     //--------------------------------
     'paypal'   => [
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         // Default product name that appear on paypal payment items
         'default_product_name' => 'My Product',
@@ -137,6 +153,7 @@ return [
     //--------------------------------
     'irankish' => array(
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'merchant-id' => 'xxxx',
         'sha1-key' => 'xxxxxxxxxxxxxxxxxxxx',
@@ -148,6 +165,7 @@ return [
     //--------------------------------
     'saderat' => array(
         'enable' => 'no',
+        'account_id' => '1',
         'title' => '',
         'merchant-id' => '999999999999999',
         'terminal-id' => '99999999',
