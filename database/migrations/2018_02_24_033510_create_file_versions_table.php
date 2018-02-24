@@ -15,6 +15,7 @@ class CreateFileVersionsTable extends Migration
     {
         Schema::create('file_versions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('file_id');
             $table->string('code');
             $table->text('description')->nullable();
             $table->text('file');

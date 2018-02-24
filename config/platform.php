@@ -25,7 +25,7 @@ return [
     'about-us-page-id' => '2',
     'index-page-id' => '1',
     'main-admin-user-id' => '1',
-    '' => '',
+    'category_type' => 'Account,Item,Invoice,Article,Expense,Income,Ticket,File',
     '' => '',
     '' => '',
     '' => '',
