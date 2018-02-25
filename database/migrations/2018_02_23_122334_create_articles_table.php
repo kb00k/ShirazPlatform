@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->longText('text');
             $table->integer('category_id');
+            $table->unsignedBigInteger('visit')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -46,6 +46,7 @@
                                 @endguest
                             @endif
                         @endforeach
+                            <li><a class="nav-link{{ Request::segment(1) == 'file' ? ' active' : '' }}" href="{{ route('file') }}"><i class="fa fa-files-o"></i> محصولات</a></li>
                     </ul>
 
                     <!-- Left Side Of Navbar -->
@@ -57,9 +58,10 @@
                                 <li><a class="nav-link{{ Request::segment(1) == 'register' ? ' active' : '' }}" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> ثبت نام</a></li>
                             @endif
                         @else
+                            <li><a class="nav-link{{ Request::segment(1) == 'notification' ? ' active' : '' }}" href="{{ route('notification') }}"><i class="fa fa-bullhorn"></i> اطلاعیه ها</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user-circle-o"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('profile') }}">

@@ -5,12 +5,11 @@ ShirazPlatform help Persian people to make new software base on Laravel.
 ## Main features
 
 1. Full Laravel Auth
-2. Role and Permission management
-3. Iranian Payment
-4. Invoice System
-5. Ticketing System
-6. Simple Accounting
-7. File Shop System
+2. Iranian Payment
+3. Invoice System
+4. Ticketing System
+5. Simple Accounting
+6. File Shop System
 
 ## Support
 

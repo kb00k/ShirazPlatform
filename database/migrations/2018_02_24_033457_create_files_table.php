@@ -16,6 +16,7 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->integer('user_id');
             $table->integer('category_id');
             $table->integer('item_id')->nullable();
             $table->enum('type',['free','paid'])->default('paid');

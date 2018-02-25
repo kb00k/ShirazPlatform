@@ -27,6 +27,15 @@ Route::get('/page/{id}/{slug}', 'PageController@slug')->name('page-slug');
 Route::get('/about-us', 'PageController@aboutUs')->name('about-us');
 Route::get('/contact-us', 'PageController@contactUs')->name('contact-us');
 
+
+Route::get('/file', 'FileController@index')->name('file');
+Route::get('/file/{id}', 'FileController@index')->name('file.view');
+
+Route::get('/notification', 'NotificationController@index')->name('notification');
+
+
+Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
+
 Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function () {
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
 
@@ -47,4 +56,30 @@ Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function ()
     Route::delete('/page/delete/{id}', 'Admin\PageController@delete')->name('page.delete');
 
     Route::get('/invoice/add/{id}', 'Admin\PageController@index')->name('invoice.create.user');
+
+    Route::get('/article', 'Admin\ArticleController@index')->name('article');
+
+
+    Route::get('/transaction', 'Admin\TransactionController@index')->name('transaction');
+
+
+    Route::get('/invoice', 'Admin\InvoiceController@index')->name('invoice');
+
+
+    Route::get('/file', 'Admin\FileController@index')->name('file');
+
+
+    Route::get('/ticket', 'Admin\TicketController@index')->name('ticket');
+
+
+    Route::get('/account', 'Admin\InvoiceController@index')->name('account');
+
+
+    Route::get('/category', 'Admin\InvoiceController@index')->name('category');
+
+
+    Route::get('/setting', 'Admin\InvoiceController@index')->name('setting');
+
+
+    Route::get('/app', 'Admin\AppController@index')->name('app');
 });

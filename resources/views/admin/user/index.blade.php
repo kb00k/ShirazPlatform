@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'مدیریت کاربرها - ')
+@section('title', 'کاربرها - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -11,11 +11,11 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.user') }}">مدیریت کاربرها</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.user') }}">کاربرها</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">
-                    <div class="card-header">مدیریت کاربرها
+                    <div class="card-header">کاربرها
                         <a href="{{route('admin.user.create')}}" class="btn btn-primary btn-sm pull-left"><i class="fa fa-plus-circle"></i> ایجاد کاربر جدید</a>
                     </div>
 
