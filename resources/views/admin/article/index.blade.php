@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'صفحه ها - ')
+@section('title', 'مقاله ها - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -11,12 +11,12 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.page') }}">صفحه ها</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.page') }}">مقاله ها</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">
-                    <div class="card-header">صفحه ها
-                        <a href="{{route('admin.page.create')}}" class="btn btn-primary btn-sm pull-left"><i class="fa fa-plus-circle"></i> ایجاد صفحه جدید</a>
+                    <div class="card-header">مقاله ها
+                        <a href="{{route('admin.article.create')}}" class="btn btn-primary btn-sm pull-left"><i class="fa fa-plus-circle"></i> ارسال مقاله جدید</a>
                     </div>
 
                     <div class="card-body">
@@ -26,6 +26,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>عنوان</th>
+                                <th>دسته</th>
                                 <th>اقدام ها</th>
                             </tr>
                             </thead>
@@ -33,6 +34,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>عنوان</th>
+                                <th>دسته</th>
                                 <th>اقدام ها</th>
                             </tr>
                             </tfoot>
@@ -49,10 +51,11 @@
             processing: true,
             serverSide: true,
             responsive: true,
-            ajax: '{{ route('admin.page.data') }}',
+            ajax: '{{ route('admin.article.data') }}',
             columns: [
                 {data: 'id'},
                 {data: 'title'},
+                {data: 'category.title'},
                 {data: 'action', orderable: false, searchable: false}
             ],
             oLanguage:{

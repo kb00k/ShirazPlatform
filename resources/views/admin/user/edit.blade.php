@@ -87,6 +87,28 @@
                                 </div>
                             </div>
 
+
+                            <div class="form-group row">
+                                <label for="level" class="col-md-4 col-form-label @lang('platform.input-pull')">سطح کاربری</label>
+
+                                <div class="col-md-7">
+                                    <select name="level" id="level" class="form-control{{ $errors->has('level') ? ' is-invalid' : '' }}">
+                                        <option value="user"{{old('level', $user->level) == 'user' ? ' selected' : ''}}>کاربر</option>
+                                        <option value="staff"{{old('level', $user->level) == 'staff' ? ' selected' : ''}}>کارمند</option>
+                                        <option value="admin"{{old('level', $user->level) == 'admin' ? ' selected' : ''}}>مدیر</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="note" class="col-md-4 col-form-label @lang('platform.input-pull')">توضیحات</label>
+
+                                <div class="col-md-7">
+                                    <textarea name="note" id="note" class="form-control{{ $errors->has('note') ? ' is-invalid' : '' }}">{{old('note', $user->note)}}</textarea>
+                                </div>
+                            </div>
+
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">

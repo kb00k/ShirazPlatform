@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Article;
+use App\Category;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
@@ -19,63 +23,63 @@ class ArticleController extends Controller
 
     public function data()
     {
-        return DataTables::eloquent(Page::select(['id','title','visit']))
-            ->addColumn('action', 'admin.page.action')
+        return DataTables::eloquent(Article::with('category')->select(['id','title','category_id']))
+            ->addColumn('action', 'admin.article.action')
             ->make(true);
     }
 
     public function create()
     {
-        return view('admin.page.create');
+        $categories = Category::where('type', 'Article')->get();
+        return view('admin.article.create',['categories' => $categories]);
     }
 
     public function edit($id)
     {
-        $page = Page::findOrFail($id);
-        return view('admin.page.edit',['page' => $page]);
+        $article = Article::findOrFail($id);
+        $categories = Category::where('type', 'Article')->get();
+        return view('admin.article.edit',['article' => $article, 'categories' => $categories]);
     }
 
     public function insert(Request $request)
     {
         Validator::make($request->all(), [
             'title' => 'required|string',
-            'description' => 'required|string',
             'text' => 'required|string',
-            'access' => 'required',
+            'category_id' => 'required'
         ])->validate();
-        $page = new Page();
-        $page->title = $request->title;
-        $page->description = $request->description;
-        $page->text = $request->text;
-        $page->access = $request->access;
-        $page->save();
-        flash('صفحه با موفقیت ایجاد شد.')->success();
-        return redirect()->route('admin.page');
+        $article = new Article();
+        $article->title = $request->title;
+        $article->description = $request->description;
+        $article->text = $request->text;
+        $article->category_id = $request->category_id;
+        $article->save();
+        flash('مقاله با موفقیت ایجاد شد.')->success();
+        return redirect()->route('admin.article');
     }
 
     public function update($id, Request $request)
     {
-        $page = Page::findOrFail($id);
+        $article = Article::findOrFail($id);
         Validator::make($request->all(), [
             'title' => 'required|string',
-            'description' => 'required|string',
             'text' => 'required|string',
-            'access' => 'required',
+            'category_id' => 'required'
         ])->validate();
-        $page->title = $request->title;
-        $page->description = $request->description;
-        $page->text = $request->text;
-        $page->access = $request->access;
-        $page->save();
+        $article->title = $request->title;
+        $article->description = $request->description;
+        $article->text = $request->text;
+        $article->category_id = $request->category_id;
+        $article->save();
         flash('صفحه با موفقیت ویرایش شد.')->success();
-        return redirect()->route('admin.page.edit',['id' => $page->id]);
+        return redirect()->route('admin.article.edit',['id' => $article->id]);
     }
 
     public function delete($id, Request $request)
     {
-        $page = Page::findOrFail($id);
-        $page->delete();
-        flash('صفحه با موفقیت حذف شد.')->success();
-        return redirect()->route('admin.page');
+        $article = Article::findOrFail($id);
+        $article->delete();
+        flash('مقاله با موفقیت حذف شد.')->success();
+        return redirect()->route('admin.article');
     }
 }

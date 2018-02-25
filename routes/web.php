@@ -27,9 +27,13 @@ Route::get('/page/{id}/{slug}', 'PageController@slug')->name('page-slug');
 Route::get('/about-us', 'PageController@aboutUs')->name('about-us');
 Route::get('/contact-us', 'PageController@contactUs')->name('contact-us');
 
-
+Route::get('/free-pay', 'FreePayController@index')->name('free-pay');
 Route::get('/file', 'FileController@index')->name('file');
-Route::get('/file/{id}', 'FileController@index')->name('file.view');
+Route::get('/file/{id}', 'FileController@view')->name('file.view');
+
+
+Route::get('/article', 'ArticleController@index')->name('article');
+Route::get('/article/{id}', 'ArticleController@view')->name('article.view');
 
 Route::get('/notification', 'NotificationController@index')->name('notification');
 
@@ -58,10 +62,17 @@ Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function ()
     Route::get('/invoice/add/{id}', 'Admin\PageController@index')->name('invoice.create.user');
 
     Route::get('/article', 'Admin\ArticleController@index')->name('article');
-
+    Route::get('/article/data', 'Admin\ArticleController@data')->name('article.data');
+    Route::get('/article/edit/{id}', 'Admin\ArticleController@edit')->name('article.edit');
+    Route::post('/article/update/{id}', 'Admin\ArticleController@update')->name('article.update');
+    Route::get('/article/create', 'Admin\ArticleController@create')->name('article.create');
+    Route::post('/article/insert', 'Admin\ArticleController@insert')->name('article.insert');
+    Route::delete('/article/delete/{id}', 'Admin\ArticleController@delete')->name('article.delete');
 
     Route::get('/transaction', 'Admin\TransactionController@index')->name('transaction');
 
+
+    Route::get('/item', 'Admin\ItemController@index')->name('item');
 
     Route::get('/invoice', 'Admin\InvoiceController@index')->name('invoice');
 

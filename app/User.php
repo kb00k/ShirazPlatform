@@ -29,4 +29,24 @@ class User extends Authenticatable
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function files()
+    {
+        return $this->hasMany('App\File');
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany('App\Ticket');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany('App\Transaction');
+    }
+
+    public function images()
+    {
+        return $this->hasMany('App\Image');
+    }
 }

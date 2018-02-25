@@ -19,7 +19,6 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->longText('text')->nullable();
-            $table->unsignedBigInteger('visit')->default(0);
             $table->enum('access',['public','private'])->default('public');
             $table->timestamps();
             $table->softDeletes();

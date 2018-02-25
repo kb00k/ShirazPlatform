@@ -11,12 +11,12 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.page') }}">مدیریت صفحه ها</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.page') }}"> صفحه ها</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.page.create') }}">ایجاد صفحه جدید</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">
-                    <div class="card-header">ایجاد کاربر جدید
+                    <div class="card-header">ایجاد صفحه جدید
                     </div>
 
                     <div class="card-body">
@@ -70,7 +70,7 @@
                             </div>
 
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-user-plus"></i>
+                                        <i class="fa fa-plus"></i>
                                         ایجاد صفحه
                                     </button>
                         </form>
@@ -82,8 +82,5 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace('text',{language: 'fa',contentsCss: "body {font-family: Vazir,Tahoma;}" });
-    </script>
+@include('global.ckeditor',['editors' => ['text']])
 @endsection

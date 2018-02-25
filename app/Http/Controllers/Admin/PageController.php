@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Cache;
 
 class PageController extends Controller
 {
@@ -22,7 +23,7 @@ class PageController extends Controller
 
     public function data()
     {
-        return DataTables::eloquent(Page::select(['id','title','visit']))
+        return DataTables::eloquent(Page::select(['id','title']))
             ->addColumn('action', 'admin.page.action')
             ->make(true);
     }
@@ -42,7 +43,6 @@ class PageController extends Controller
     {
         Validator::make($request->all(), [
             'title' => 'required|string',
-            'description' => 'required|string',
             'text' => 'required|string',
             'access' => 'required',
         ])->validate();
@@ -61,7 +61,6 @@ class PageController extends Controller
         $page = Page::findOrFail($id);
         Validator::make($request->all(), [
             'title' => 'required|string',
-            'description' => 'required|string',
             'text' => 'required|string',
             'access' => 'required',
         ])->validate();
@@ -70,6 +69,7 @@ class PageController extends Controller
         $page->text = $request->text;
         $page->access = $request->access;
         $page->save();
+        Cache::forget('page_'.$page->id);
         flash('صفحه با موفقیت ویرایش شد.')->success();
         return redirect()->route('admin.page.edit',['id' => $page->id]);
     }
@@ -77,6 +77,7 @@ class PageController extends Controller
     public function delete($id, Request $request)
     {
         $page = Page::findOrFail($id);
+        Cache::forget('page_'.$page->id);
         $page->delete();
         flash('صفحه با موفقیت حذف شد.')->success();
         return redirect()->route('admin.page');

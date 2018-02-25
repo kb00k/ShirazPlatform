@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Transaction extends Model
 {
     use SoftDeletes;
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 }

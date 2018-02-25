@@ -47,11 +47,14 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email',
             'mobile' => 'required|numeric|digits:11|unique:users,mobile',
             'password' => 'required|string|min:6|confirmed',
+            'level' => 'required',
         ])->validate();
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->mobile = $request->mobile;
+        $user->note = $request->note;
+        $user->level = $request->level;
         $user->password = Hash::make($request->password);
         $user->save();
         flash('کاربر با موفقیت اضافه شد.')->success();
@@ -70,10 +73,13 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'mobile' => 'required|numeric|digits:11|unique:users,mobile,' . $user->id,
             'password' => 'confirmed',
+            'level' => 'required',
         ])->validate();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->mobile = $request->mobile;
+        $user->note = $request->note;
+        $user->level = $request->level;
         if($request->password) {
             $user->password = Hash::make($request->password);
         }

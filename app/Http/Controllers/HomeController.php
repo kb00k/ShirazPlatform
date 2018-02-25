@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $page = Page::findOrFail(config('platform.index-page-id'));
+        $page = Page::findWithCache(config('platform.index-page-id'));
         return view('home.index',['page' => $page]);
     }
 }

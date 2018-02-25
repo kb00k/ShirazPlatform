@@ -20,9 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('mobile')->unique();
-            $table->enum('level',['admin','user'])->default('user');
+            $table->string('title')->unique();
+            $table->enum('level',['admin','user','staff'])->default('user');
             $table->enum('active',['yes','no'])->default('yes');
             $table->string('password');
+            $table->text('note')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

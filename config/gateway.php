@@ -21,7 +21,7 @@ return [
     'zarinpal' => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'زرین پال',
         'merchant-id'  => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
         'type'         => 'zarin-gate',             // Types: [zarin-gate || normal]
         'callback-url' => '/',
@@ -37,7 +37,7 @@ return [
     'mellat' => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'به پرداخت ملت',
         'username'     => '',
         'password'     => '',
         'terminalId'   => 0000000,
@@ -50,7 +50,7 @@ return [
     'saman' => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'سامان کیش',
         'merchant'     => '',
         'password'     => '',
         'callback-url'   => '/',
@@ -62,7 +62,7 @@ return [
     'payir'    => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'Pay.ir',
         'api'          => 'xxxxxxxxxxxxxxxxxxxx',
         'callback-url' => '/'
     ],
@@ -73,7 +73,7 @@ return [
     'sadad' => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'سداد ملی',
         'merchant'      => '',
         'transactionKey'=> '',
         'terminalId'    => 000000000,
@@ -86,7 +86,7 @@ return [
     'parsian' => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'پارسیان',
         'pin'          => 'xxxxxxxxxxxxxxxxxxxx',
         'callback-url' => '/'
     ],
@@ -96,7 +96,7 @@ return [
     'pasargad' => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'پاسارگاد',
         'terminalId'    => 000000,
         'merchantId'    => 000000,
         'certificate-path'    => storage_path('gateway/pasargad/certificate.xml'),
@@ -109,7 +109,7 @@ return [
     'asanpardakht' => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'آسان پرداخت',
         'merchantId'     => '',
         'merchantConfigId'     => '',
         'username' => '',
@@ -125,7 +125,7 @@ return [
     'paypal'   => [
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'PayPal',
         // Default product name that appear on paypal payment items
         'default_product_name' => 'My Product',
         'default_shipment_price' => 0,
@@ -154,7 +154,7 @@ return [
     'irankish' => array(
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'ایران کیش',
         'merchant-id' => 'xxxx',
         'sha1-key' => 'xxxxxxxxxxxxxxxxxxxx',
         'description' => 'description',
@@ -166,7 +166,7 @@ return [
     'saderat' => array(
         'enable' => 'no',
         'account_id' => '1',
-        'title' => '',
+        'title' => 'مبنا کارت صادرات',
         'merchant-id' => '999999999999999',
         'terminal-id' => '99999999',
         'public-key' => storage_path('/saderat-public-key.pem'),
