@@ -40,7 +40,7 @@ Route::get('/notification', 'NotificationController@index')->name('notification'
 
 Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
 
-
+Route::get('/forum', 'TicketController@create')->name('forum');
 
 Route::post('/image-upload', 'ImageController@upload')->name('image-upload');
 
