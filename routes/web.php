@@ -40,6 +40,10 @@ Route::get('/notification', 'NotificationController@index')->name('notification'
 
 Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
 
+
+
+Route::post('/image-upload', 'ImageController@upload')->name('image-upload');
+
 Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function () {
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
 
@@ -89,8 +93,14 @@ Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function ()
     Route::get('/category', 'Admin\InvoiceController@index')->name('category');
 
 
-    Route::get('/setting', 'Admin\InvoiceController@index')->name('setting');
-
+    Route::get('/setting', 'Admin\SettingController@index')->name('setting');
+    Route::get('/setting/category/{id}', 'Admin\SettingController@category')->name('setting.category');
+    Route::post('/setting/category/update/{id}', 'Admin\SettingController@updateCategory')->name('setting.category.update');
+    Route::get('/setting/edit/{id}', 'Admin\SettingController@edit')->name('setting.edit');
+    Route::post('/setting/update/{id}', 'Admin\SettingController@update')->name('setting.update');
+    Route::get('/setting/create', 'Admin\SettingController@create')->name('setting.create');
+    Route::post('/setting/insert', 'Admin\SettingController@insert')->name('setting.insert');
+    Route::delete('/setting/delete/{id}', 'Admin\SettingController@delete')->name('setting.delete');
 
     Route::get('/app', 'Admin\AppController@index')->name('app');
 });

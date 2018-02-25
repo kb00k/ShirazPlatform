@@ -150,7 +150,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Axdlee\Config\ConfigServiceProvider::class,
         /*
          * Application Service Providers...
          */

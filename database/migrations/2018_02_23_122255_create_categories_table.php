@@ -25,6 +25,26 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        DB::table('categories')->insert([
+            'id' => 1,
+            'title' => 'عمومی',
+            'type' => 'Setting',
+        ]);
+        DB::table('categories')->insert([
+            'id' => 2,
+            'title' => 'درگاه پرداخت',
+            'type' => 'Setting',
+        ]);
+        DB::table('categories')->insert([
+            'id' => 3,
+            'title' => 'محتوا',
+            'type' => 'Setting',
+        ]);
+        DB::table('categories')->insert([
+            'id' => 4,
+            'title' => 'حساب ها',
+            'type' => 'Setting',
+        ]);
 
         DB::table('categories')->insert([
             'title' => 'فاکتور فروش',
@@ -76,6 +96,8 @@ class CreateCategoriesTable extends Migration
             'title' => 'عمومی',
             'type' => 'File',
         ]);
+
+
     }
 
     /**

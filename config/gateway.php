@@ -169,12 +169,13 @@ return [
         'title' => 'مبنا کارت صادرات',
         'merchant-id' => '999999999999999',
         'terminal-id' => '99999999',
-        'public-key' => storage_path('/saderat-public-key.pem'),
-        'private-key' => storage_path('/saderat-private-key.pem'),
+        'public-key' => '',
+        'private-key' => '',
         'callback-url' => 'http://example.org/result'
     ),
     //-------------------------------
     // Tables names
     //--------------------------------
     'table'    => 'gateway_transactions',
+
 ];

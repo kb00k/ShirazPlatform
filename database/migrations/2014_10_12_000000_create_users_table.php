@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('mobile')->unique();
-            $table->string('title')->unique();
+            $table->string('title')->nullable();
             $table->enum('level',['admin','user','staff'])->default('user');
             $table->enum('active',['yes','no'])->default('yes');
             $table->string('password');
@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             'name' => 'علی قاسم زاده',
             'email' => 'it.ghasemzadeh@gmail.com',
             'mobile' => '09177886099',
+            'title' => 'مدیر نرم افزار شیراز',
             'level' => 'admin',
             'active' => 'yes',
             'password' => Hash::make('p@ssw0rd'),

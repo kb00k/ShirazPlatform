@@ -21,6 +21,13 @@ class CreateAccountsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('accounts')->insert([
+            'title' => 'نقدی'
+        ]);
+        DB::table('accounts')->insert([
+            'title' => 'بانکی'
+        ]);
     }
 
     /**

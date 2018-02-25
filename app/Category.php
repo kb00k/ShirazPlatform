@@ -32,4 +32,9 @@ class Category extends Model
     {
         return $this->hasMany('App\Item');
     }
+
+    public function settings()
+    {
+        return $this->hasMany('App\Category');
+    }
 }

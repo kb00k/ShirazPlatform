@@ -16,10 +16,10 @@ class CreateFileVersionsTable extends Migration
         Schema::create('file_versions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('file_id');
-            $table->string('code');
+            $table->string('title');
             $table->text('description')->nullable();
-            $table->text('file');
-
+            $table->string('source');
+            $table->double('size');
             $table->timestamps();
         });
     }

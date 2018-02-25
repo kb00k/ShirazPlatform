@@ -38,6 +38,20 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="title" class="col-md-4 col-form-label @lang('platform.input-pull')">عنوان کاربری</label>
+
+                                <div class="col-md-7">
+                                    <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title', $user->title) }}">
+
+                                    @if ($errors->has('title'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label @lang('platform.input-pull')">آدرس ایمیل</label>
 
                                 <div class="col-md-7">
