@@ -113,10 +113,7 @@
     <footer class="{{ config('platform.footer-position') }}">
         <nav class="navbar navbar-expand-lg {{ config('platform.navbar-bottm-type') }}">
             <div class="{{ config('platform.navbar-container') }}">
-                <div class="ml-auto">
-                    <a href="https://shirazsoft.com">قدرت گرفته از ShirazPlatform محصول گروه نرم افزاری شیراز</a>
-                </div>
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ml-auto">
 
                 @foreach($menus as $menu)
                     @if($menu->position == 'navbar-bottom')
@@ -128,6 +125,9 @@
                     @endif
                 @endforeach
                 </ul>
+                <div class="mr-auto">
+                    <a href="https://shirazsoft.com">قدرت گرفته از ShirazPlatform محصول گروه نرم افزاری شیراز</a>
+                </div>
             </div>
         </nav>
     </footer>
