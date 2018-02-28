@@ -9,6 +9,7 @@ require('./bootstrap');
 
 
 window.$.fn.dataTable = require('datatables.net-bs4');
+window.mask = require('jquery-mask-plugin');
 
 window.Vue = require('vue');
 

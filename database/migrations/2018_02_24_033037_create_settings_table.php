@@ -295,6 +295,59 @@ class CreateSettingsTable extends Migration
             'key' => 'gateway.saman.password',
             'type' => 'text-ltr',
         ]);
+
+        DB::table('settings')->insert([
+            'title' => 'فعال بودن مبنا کارت',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.saderat.enable',
+            'type' => 'yesno',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'حساب متصل به مبنا کارت',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.saderat.account_id',
+            'type' => 'select-table',
+            'options' => 'accounts,title',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'عنوان درگاه منبا کارت',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.saderat.title',
+            'type' => 'text',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'Merchant مبنا کارت',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.saderat.merchant-id',
+            'type' => 'text-ltr',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'Terminal مبنا کارت',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.saderat.terminal-id',
+            'type' => 'text-ltr',
+        ]);
+
+        DB::table('settings')->insert([
+            'title' => 'کلید عمومی مبنا کارت',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.saderat.public-key',
+            'type' => 'file',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'کلید خصوصی مبنا کارت',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.saderat.private-key',
+            'type' => 'file',
+        ]);
+
         //TODO: Add Other gateway and settings.
     }
 

@@ -27,7 +27,12 @@ Route::get('/page/{id}/{slug}', 'PageController@slug')->name('page-slug');
 Route::get('/about-us', 'PageController@aboutUs')->name('about-us');
 Route::get('/contact-us', 'PageController@contactUs')->name('contact-us');
 
+
 Route::get('/free-pay', 'FreePayController@index')->name('free-pay');
+Route::post('/free-pay/start', 'FreePayController@start')->name('free-pay.start');
+Route::any('/free-pay/callback', 'FreePayController@callback')->name('free-pay.callback');
+
+
 Route::get('/file', 'FileController@index')->name('file');
 Route::get('/file/{id}', 'FileController@view')->name('file.view');
 
@@ -90,7 +95,13 @@ Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function ()
     Route::get('/account', 'Admin\InvoiceController@index')->name('account');
 
 
-    Route::get('/category', 'Admin\InvoiceController@index')->name('category');
+    Route::get('/category', 'Admin\CategoryController@index')->name('category');
+    Route::get('/category/data', 'Admin\CategoryController@data')->name('category.data');
+    Route::get('/category/edit/{id}', 'Admin\CategoryController@edit')->name('category.edit');
+    Route::post('/category/update/{id}', 'Admin\CategoryController@update')->name('category.update');
+    Route::get('/category/create', 'Admin\CategoryController@create')->name('category.create');
+    Route::post('/category/insert', 'Admin\CategoryController@insert')->name('category.insert');
+    Route::delete('/category/delete/{id}', 'Admin\CategoryController@delete')->name('category.delete');
 
 
     Route::get('/setting', 'Admin\SettingController@index')->name('setting');

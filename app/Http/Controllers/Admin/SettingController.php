@@ -41,8 +41,7 @@ class SettingController extends Controller
         $settings = Setting::where('category_id',$id)->get();
         foreach ($settings as $setting) {
             $key = 'setting_'.$setting->id;
-            if($setting->type == 'file')
-            {
+            if($setting->type == 'file') {
                 if($request->{$key})
                 {
                     if(File::exists(config($setting->key)))
@@ -53,7 +52,9 @@ class SettingController extends Controller
                     Config::write($setting->key, storage_path('app/'.$file));
                 }
             } else {
-                Config::write($setting->key, $request->{$key});
+                if($request->{$key}) {
+                    Config::write($setting->key, $request->{$key});
+                }
             }
         }
         flash('تغییرات با موفقیت ذخیره شد.')->success();

@@ -25,7 +25,7 @@ class CreateTransactionsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('mobile')->nullable();
-            $table->dateTime('transaction_at');
+            $table->dateTime('transaction_at')->nullable();
             $table->dateTime('due_at')->nullable();
             $table->enum('status',['temporary','confirmed','accepted'])->default('confirmed');
             $table->timestamps();

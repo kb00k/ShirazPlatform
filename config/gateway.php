@@ -11,7 +11,7 @@ return [
     // Receipt gateway
     //--------------------------------
     'receipt' => [
-        'enable' => 'yes',
+        'enable' => 'no',
         'account_id' => '1',
         'title' => 'فیش بانکی',
     ],
@@ -19,12 +19,12 @@ return [
     // Zarinpal gateway
     //--------------------------------
     'zarinpal' => [
-        'enable' => 'no',
+        'enable' => 'yes',
         'account_id' => '1',
         'title' => 'زرین پال',
-        'merchant-id'  => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+        'merchant-id'  => '539af3a3-b3f8-4000-b38e-631a5bef37d4',
         'type'         => 'zarin-gate',             // Types: [zarin-gate || normal]
-        'callback-url' => '/',
+        'callback-url' => '/callback',
         'server'       => 'germany',                // Servers: [germany || iran || test]
         'email'        => 'email@gmail.com',
         'mobile'       => '09xxxxxxxxx',
@@ -40,8 +40,8 @@ return [
         'title' => 'به پرداخت ملت',
         'username'     => '',
         'password'     => '',
-        'terminalId'   => 0000000,
-        'callback-url' => '/'
+        'terminalId'   => '',
+        'callback-url' => '/callback'
     ],
 
     //--------------------------------
@@ -53,7 +53,7 @@ return [
         'title' => 'سامان کیش',
         'merchant'     => '',
         'password'     => '',
-        'callback-url'   => '/',
+        'callback-url'   => '/callback',
     ],
 
     //--------------------------------
@@ -64,7 +64,7 @@ return [
         'account_id' => '1',
         'title' => 'Pay.ir',
         'api'          => 'xxxxxxxxxxxxxxxxxxxx',
-        'callback-url' => '/'
+        'callback-url' => '/callback'
     ],
 
     //--------------------------------
@@ -76,8 +76,8 @@ return [
         'title' => 'سداد ملی',
         'merchant'      => '',
         'transactionKey'=> '',
-        'terminalId'    => 000000000,
-        'callback-url'  => '/'
+        'terminalId'    => '0',
+        'callback-url'  => '/callback'
     ],
     
     //--------------------------------
@@ -88,7 +88,7 @@ return [
         'account_id' => '1',
         'title' => 'پارسیان',
         'pin'          => 'xxxxxxxxxxxxxxxxxxxx',
-        'callback-url' => '/'
+        'callback-url' => '/callback'
     ],
     //--------------------------------
     // Pasargad gateway
@@ -97,10 +97,10 @@ return [
         'enable' => 'no',
         'account_id' => '1',
         'title' => 'پاسارگاد',
-        'terminalId'    => 000000,
-        'merchantId'    => 000000,
-        'certificate-path'    => storage_path('gateway/pasargad/certificate.xml'),
-        'callback-url' => '/gateway/callback/pasargad'
+        'terminalId'    => '',
+        'merchantId'    => '',
+        'certificate-path'    => '',
+        'callback-url' => '/callback'
     ],
 
     //--------------------------------
@@ -116,7 +116,7 @@ return [
         'password' => '',
         'key' => '',
         'iv' => '',
-        'callback-url'   => '/',
+        'callback-url'   => '/callback',
     ],
 
     //--------------------------------
@@ -143,7 +143,7 @@ return [
              * Logging is most verbose in the 'FINE' level and decreases as you
              * proceed towards ERROR
              */
-            'call_back_url'          => '/gateway/callback/paypal',
+            'call_back_url'          => '/callback',
             'log.LogLevel'           => 'FINE'
 
         ]
@@ -152,26 +152,26 @@ return [
     // IranKish gateway
     //--------------------------------
     'irankish' => array(
-        'enable' => 'no',
+        'enable' => 'yes',
         'account_id' => '1',
         'title' => 'ایران کیش',
-        'merchant-id' => 'xxxx',
-        'sha1-key' => 'xxxxxxxxxxxxxxxxxxxx',
+        'merchant-id' => 'C7AE',
+        'sha1-key' => '22338240992352910814917221751200141041845518824222260',
         'description' => 'description',
-        'callback-url' => 'http://example.org/result'
+        'callback-url' => '/callback'
     ),
     //--------------------------------
     // Saderat gateway
     //--------------------------------
     'saderat' => array(
-        'enable' => 'no',
+        'enable' => 'yes',
         'account_id' => '1',
         'title' => 'مبنا کارت صادرات',
-        'merchant-id' => '999999999999999',
-        'terminal-id' => '99999999',
-        'public-key' => '',
-        'private-key' => '',
-        'callback-url' => 'http://example.org/result'
+        'merchant-id' => '693417573400053',
+        'terminal-id' => '69002366',
+        'public-key' => 'D:\programming\xampp\htdocs\ShirazPlatform\storage\app/config/DbQGiW0GpvIGzsrVbYOd1TIRY04D2oCtyzs7YBf8.txt',
+        'private-key' => 'D:\programming\xampp\htdocs\ShirazPlatform\storage\app/config/6TvJSDxL1zSIazzTIAf6PJlg6QYLo0958mU71Oa6.txt',
+        'callback-url' => '/callback'
     ),
     //-------------------------------
     // Tables names
