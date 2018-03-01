@@ -33,3 +33,12 @@ table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable th:
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+
+.input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child) {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

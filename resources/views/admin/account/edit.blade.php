@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ویرایش دسته ' . $category->title .' - ')
+@section('title', 'ویرایش حساب ' . $account->title .' - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -11,66 +11,43 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.page') }}">صفحه ها</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.category.edit',['id' => $category->id]) }}">ویرایش دسته  {{ $category->title }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.account') }}">حساب ها</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.account.edit',['id' => $account->id]) }}">ویرایش دسته  {{ $account->title }}</a></li>
                     </ol>
                 </nav>
                 <div class="card card-default">
-                    <div class="card-header">ویرایش دسته {{ $category->title }}
+                    <div class="card-header">ویرایش دسته {{ $account->title }}
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.category.update',['id' => $category->id]) }}">
+                        <form method="POST" action="{{ route('admin.account.update',['id' => $account->id]) }}">
                             @csrf
                             @method('post')
                             <div class="form-group">
                                 <label for="title">عنوان</label>
-                                    <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title', $category->title) }}" required autofocus>
+                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title',$account->title) }}" required autofocus>
 
-                                    @if ($errors->has('title'))
-                                        <span class="invalid-feedback">
+                                @if ($errors->has('title'))
+                                    <span class="invalid-feedback">
                                         <strong>{{ $errors->first('title') }}</strong>
                                     </span>
-                                    @endif
-                            </div>
-                            <div class="form-group">
-                                <label for="type">نوع</label>
-                                <select name="type" id="type" class="form-control{{ $errors->has('type') ? ' is-invalid' : '' }}">
-                                    @foreach(explode(",",config('platform.category-type')) as $type)
-                                        <option value="{{$type}}" {{ old('type',$category->type) == $type ? ' selected' : '' }}>{{ trans('category.'.$type) }}</option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('type'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('type') }}</strong>
-                                    </span>
                                 @endif
                             </div>
 
                             <div class="form-group">
-                                <label for="color">رنگ</label>
-                                <input dir="ltr" id="color" type="text" class="form-control{{ $errors->has('color') ? ' is-invalid' : '' }}" name="color" value="{{ old('color', $category->color) }}">
+                                <label for="order">ترتیب</label>
+                                <input dir="ltr" id="order" type="number" class="form-control{{ $errors->has('order') ? ' is-invalid' : '' }}" name="order" value="{{ old('order',$account->order) }}">
 
-                                @if ($errors->has('color'))
+                                @if ($errors->has('order'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('color') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <label for="icon">آیکون</label>
-                                <input dir="ltr" id="icon" type="text" class="form-control{{ $errors->has('icon') ? ' is-invalid' : '' }}" name="icon" value="{{ old('icon', $category->icon) }}">
-
-                                @if ($errors->has('icon'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('icon') }}</strong>
+                                        <strong>{{ $errors->first('order') }}</strong>
                                     </span>
                                 @endif
                             </div>
 
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-save"></i>
-                                        ویرایش دسته
+                                        ویرایش حساب
                                     </button>
                         </form>
                     </div>

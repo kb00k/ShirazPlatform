@@ -115,11 +115,19 @@
 
 
                         @endguest
+
+
                             <div class="form-group row">
                                 <label for="amount" class="col-md-4 col-form-label @lang('platform.input-pull')">مبلغ</label>
 
                                 <div class="col-md-7">
-                                    <input id="amount" type="text" dir="ltr" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" name="amount" value="{{ old('amount') }}" required>
+
+                                    <div class="input-group mb-2 ml-sm-2">
+                                        <input id="amount" type="text" dir="ltr" class="form-control{{ $errors->has('amount') ? ' is-invalid' : '' }}" name="amount" value="{{ old('amount') }}" required>
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">تومان</div>
+                                        </div>
+                                    </div>
 
                                     @if ($errors->has('amount'))
                                         <span class="invalid-feedback">

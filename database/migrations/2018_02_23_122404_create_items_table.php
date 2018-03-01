@@ -17,8 +17,8 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->decimal('sale_price', 15, 2);
-            $table->decimal('purchase_price', 15, 2);
+            $table->decimal('sale_price', 15, 0);
+            $table->decimal('purchase_price', 15, 0);
             $table->integer('category_id');
             $table->enum('enable',['yes','no'])->default('yes');
             $table->enum('asset',['yes','no'])->default('no');

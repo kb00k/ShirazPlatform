@@ -17,7 +17,7 @@ class CreateFilePurchasesTable extends Migration
             $table->increments('id');
             $table->integer('file_id');
             $table->integer('user_id');
-            $table->decimal('price', 15, 2);
+            $table->decimal('price', 15, 0);
             $table->timestamps();
         });
     }

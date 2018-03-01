@@ -46,7 +46,7 @@ class FreePayController extends Controller
             $request_gateway = $request->gateway;
             $gateway = Gateway::{$request_gateway}();
             $gateway->setCallback(url('free-pay/callback'));
-            $gateway->price($request->amount)->ready();
+            $gateway->price($request->amount * 10)->ready();
             $refId =  $gateway->refId();
             $transID = $gateway->transactionId();
 

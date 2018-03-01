@@ -25,9 +25,9 @@ class CreateInvoicesTable extends Migration
             $table->integer('period')->nullable();
             $table->text('note')->nullable();
             $table->string('attachment')->nullable();
-            $table->decimal('total', 15, 2);
-            $table->decimal('tax', 15, 2)->nullable();
-            $table->decimal('discount', 15, 2)->nullable();
+            $table->decimal('total', 15, 0);
+            $table->decimal('tax', 15, 0)->nullable();
+            $table->decimal('discount', 15, 0)->nullable();
             $table->enum('status',['draft','sent','viewed','approved','partial','paid'])->default('draft');
             $table->enum('type',['sale','purchase']);
             $table->timestamps();

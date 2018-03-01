@@ -57,7 +57,7 @@
             columns: [
                 {data: 'id'},
                 {data: 'title'},
-                {data: 'inventory', searchable: false},
+                {data: 'inventory', orderable: false, searchable: false},
 				{data: 'order'},
                 {data: 'action', orderable: false, searchable: false}
             ],

@@ -16,7 +16,7 @@ class CreateRecordsTable extends Migration
         Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
-            $table->decimal('price', 15, 2);
+            $table->decimal('price', 15, 0);
             $table->double('quantity')->default(1);
             $table->double('total');
             $table->integer('invoice_id');
