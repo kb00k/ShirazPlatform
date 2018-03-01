@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ایجاد صفحه جدید - ')
+@section('title', 'ارسال مقاله جدید - ')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

@@ -92,7 +92,14 @@ Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function ()
     Route::get('/ticket', 'Admin\TicketController@index')->name('ticket');
 
 
-    Route::get('/account', 'Admin\InvoiceController@index')->name('account');
+    Route::get('/account', 'Admin\AccountController@index')->name('account');
+    Route::get('/account/data', 'Admin\AccountController@data')->name('account.data');
+    Route::get('/account/edit/{id}', 'Admin\AccountController@edit')->name('account.edit');
+    Route::post('/account/update/{id}', 'Admin\AccountController@update')->name('account.update');
+    Route::get('/account/create', 'Admin\AccountController@create')->name('account.create');
+    Route::post('/account/insert', 'Admin\AccountController@insert')->name('account.insert');
+    Route::delete('/account/delete/{id}', 'Admin\AccountController@delete')->name('account.delete');
+
 
 
     Route::get('/category', 'Admin\CategoryController@index')->name('category');
