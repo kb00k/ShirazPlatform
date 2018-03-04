@@ -28,7 +28,7 @@ return [
     'main-admin-user-id' => '1',
     'category-type' => 'Account,Item,Invoice,Article,Expense,Income,Ticket,File,Forum,Setting',
     'min-payment-price' => '1000',
-    '' => '',
+    'file-per-page' => '20',
     '' => '',
     '' => '',
     '' => '',

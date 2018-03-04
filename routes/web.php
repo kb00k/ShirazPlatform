@@ -34,7 +34,14 @@ Route::any('/free-pay/callback', 'FreePayController@callback')->name('free-pay.c
 
 
 Route::get('/file', 'FileController@index')->name('file');
-Route::get('/file/{id}', 'FileController@view')->name('file.view');
+Route::get('/file/category/{id}', 'FileController@category')->name('file.category');
+Route::get('/file/type/{type}', 'FileController@type')->name('file.type');
+Route::get('/file/create', 'FileController@create')->name('file.create');
+Route::post('/file/insert', 'FileController@insert')->name('file.insert');
+Route::get('/file/view/{id}', 'FileController@view')->name('file.view');
+Route::get('/file/add-cart/{id}', 'FileController@addCart')->name('file.add-cart');
+Route::get('/file/remove-cart/{id}', 'FileController@removeCart')->name('file.remove-cart');
+Route::get('/file/download/{id}', 'FileController@download')->name('file.download')->middleware('auth');
 
 
 Route::get('/article', 'ArticleController@index')->name('article');
@@ -46,6 +53,8 @@ Route::get('/notification', 'NotificationController@index')->name('notification'
 Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');
 
 Route::get('/forum', 'TicketController@create')->name('forum');
+
+Route::get('/cart', 'CartController@index')->name('cart');
 
 Route::post('/image-upload', 'ImageController@upload')->name('image-upload');
 
@@ -87,6 +96,8 @@ Route::prefix(Config('platform.admin-route'))->name('admin.')->group(function ()
 
 
     Route::get('/file', 'Admin\FileController@index')->name('file');
+
+
 
 
     Route::get('/ticket', 'Admin\TicketController@index')->name('ticket');

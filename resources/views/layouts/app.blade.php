@@ -54,6 +54,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <!-- Authentication Links -->
+                        @if(Cart::count())
+                            <li>
+                                <a class="nav-link{{ Request::segment(1) == 'cart' ? ' active' : '' }}" href="{{ route('cart') }}"><i class="fa fa-shopping-basket"></i> سبد خرید<span class="badge badge-pill badge-dark">{{Cart::count()}}</span></a>
+                            </li>
+                        @endif
                         @guest
                             <li><a class="nav-link{{ Request::segment(1) == 'login' ? ' active' : '' }}" href="{{ route('login') }}"><i class="fa fa-sign-in"></i>ورود </a></li>
                             @if(config('platform.enable-register'))

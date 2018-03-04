@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('mobile')->unique();
             $table->string('title')->nullable();
+            $table->string('api_key')->nullable();
+            $table->string('website')->nullable();
             $table->enum('level',['admin','user','staff'])->default('user');
             $table->enum('active',['yes','no'])->default('yes');
             $table->string('password');

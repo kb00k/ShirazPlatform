@@ -16,11 +16,14 @@ class CreateFileVersionsTable extends Migration
         Schema::create('file_versions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('file_id');
-            $table->string('title');
+            $table->string('title')->nullable();
+            $table->string('name');
             $table->text('description')->nullable();
-            $table->string('source');
-            $table->double('size');
+            $table->string('source')->nullable();
+            $table->string('link')->nullable();
+            $table->double('size')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

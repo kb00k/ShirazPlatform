@@ -146,6 +146,13 @@ return [
         'terms' => 'شرایط',
         'amount' => 'مبلغ',
         'gateway' => 'درگاه پرداخت',
-        'price' => 'قیمت'
+        'price' => 'قیمت',
+        'version' => 'نسخه',
+        'source' => 'فایل',
+        'type' => 'نوع',
+        'version_source' => 'فایل نسخه',
+        'version_title' => 'عنوان نسخه',
+        'version_description' => 'توضیحات نسخه',
+        'version_name' => 'نام فایل نسخه',
     ],
 ];

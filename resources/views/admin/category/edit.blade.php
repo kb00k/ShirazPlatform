@@ -11,7 +11,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ config('platform.name') }}</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">مدیریت سیستم</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.page') }}">صفحه ها</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.category') }}">دسته ها</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('admin.category.edit',['id' => $category->id]) }}">ویرایش دسته  {{ $category->title }}</a></li>
                     </ol>
                 </nav>

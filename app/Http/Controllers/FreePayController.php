@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
-use Illuminate\Support\Facades\Auth;
 use Shirazsoft\Gateway\Gateway;
 use Shirazsoft\Gateway\Irankish\IrankishException;
 use Shirazsoft\Gateway\Payir\PayirSendException;
@@ -33,7 +32,6 @@ class FreePayController extends Controller
 
     public function start(Request $request)
     {
-        $request->amount = str_replace(",","",$request->amount);
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email',
@@ -93,9 +91,6 @@ class FreePayController extends Controller
 
             $gateway = \Gateway::verify();
             $trackingCode = $gateway->trackingCode();
-            $refId = $gateway->refId();
-            $cardNumber = $gateway->cardNumber();
-
             $transaction = new Transaction();
             $transaction->account_id = config('gateway.'.session('gateway').'.account_id');
             $transaction->name = session('name');

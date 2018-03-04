@@ -18,11 +18,12 @@ class CreateItemsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->decimal('sale_price', 15, 0);
-            $table->decimal('purchase_price', 15, 0);
+            $table->decimal('purchase_price', 15, 0)->nullable();
             $table->integer('category_id');
             $table->enum('enable',['yes','no'])->default('yes');
             $table->enum('asset',['yes','no'])->default('no');
-            $table->string('class')->nullable();
+            $table->string('model')->nullable();
+            $table->integer('model_id')->nullable();
             $table->double('inventory')->nullable();
             $table->timestamps();
             $table->softDeletes();

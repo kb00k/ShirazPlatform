@@ -28,4 +28,8 @@ class File extends Model
     {
         return $this->hasMany('App\FilePurchase');
     }
+    public function version()
+    {
+        return $this->belongsTo('App\FileVersion','id','file_id');
+    }
 }

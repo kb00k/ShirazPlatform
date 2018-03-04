@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description')->nullable();
+            $table->string('slug')->nullable();
             $table->longText('text')->nullable();
             $table->enum('access',['public','private'])->default('public');
             $table->timestamps();

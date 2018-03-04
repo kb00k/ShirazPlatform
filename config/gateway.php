@@ -19,10 +19,10 @@ return [
     // Zarinpal gateway
     //--------------------------------
     'zarinpal' => [
-        'enable' => 'yes',
+        'enable' => 'no',
         'account_id' => '1',
         'title' => 'زرین پال',
-        'merchant-id'  => '539af3a3-b3f8-4000-b38e-631a5bef37d4',
+        'merchant-id'  => '',
         'type'         => 'zarin-gate',             // Types: [zarin-gate || normal]
         'callback-url' => '/callback',
         'server'       => 'germany',                // Servers: [germany || iran || test]
@@ -152,11 +152,11 @@ return [
     // IranKish gateway
     //--------------------------------
     'irankish' => array(
-        'enable' => 'yes',
+        'enable' => 'no',
         'account_id' => '2',
         'title' => 'ایران کیش',
-        'merchant-id' => 'C7AE',
-        'sha1-key' => '22338240992352910814917221751200141041845518824222260',
+        'merchant-id' => '',
+        'sha1-key' => '',
         'description' => 'description',
         'callback-url' => '/callback'
     ),
@@ -164,13 +164,13 @@ return [
     // Saderat gateway
     //--------------------------------
     'saderat' => array(
-        'enable' => 'yes',
+        'enable' => 'no',
         'account_id' => '1',
         'title' => 'مبنا کارت صادرات',
-        'merchant-id' => '693417573400053',
-        'terminal-id' => '69002366',
-        'public-key' => 'D:\programming\xampp\htdocs\ShirazPlatform\storage\app/config/DbQGiW0GpvIGzsrVbYOd1TIRY04D2oCtyzs7YBf8.txt',
-        'private-key' => 'D:\programming\xampp\htdocs\ShirazPlatform\storage\app/config/6TvJSDxL1zSIazzTIAf6PJlg6QYLo0958mU71Oa6.txt',
+        'merchant-id' => '',
+        'terminal-id' => '',
+        'public-key' => '',
+        'private-key' => '',
         'callback-url' => '/callback'
     ),
     //-------------------------------

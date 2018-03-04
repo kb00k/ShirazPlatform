@@ -19,6 +19,7 @@ class CreateFilePurchasesTable extends Migration
             $table->integer('user_id');
             $table->decimal('price', 15, 0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
