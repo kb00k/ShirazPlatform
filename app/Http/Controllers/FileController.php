@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Item;
+use Telegram\Bot\Api;
+use Telegram\Bot\Keyboard\Keyboard;
+
 class FileController extends Controller
 {
     public function index()
@@ -138,4 +141,64 @@ class FileController extends Controller
             return Storage::download($file->version->source, $file->version->name);
         }
     }
+
+    public function tele()
+    {
+
+        $keyboard = [
+            ['ثبت نام', 'ورود به سایت', 'فعال سازی'],
+        ];
+        $telegram = new Api(config('telegram.bots.mybot.token'));
+
+        $keyboard = Keyboard::make()
+            ->inline()
+            ->row(
+                Keyboard::inlineButton(['text' => 'Test', 'callback_data' => 'data']),
+                Keyboard::inlineButton(['text' => 'Btn 2', 'callback_data' => 'data_from_btn2'])
+            );
+
+
+
+
+        $response = $telegram->sendMessage([
+            'chat_id' => '324083208',
+            'text' => 'Hello World',
+        ])>replyMarkup($keyboard);
+
+        $messageId = $response->getMessageId();
+
+        //$response = $telegram->getUpdates();
+        //$response = $telegram->getUpdates();
+
+
+        //$response = $telegram->sendMessage(['chat_id' => '324083208', 'text' => 'Hello World']);
+
+        //$messageId = $response->getMessageId();
+         dd($response);
+    }
+
+    public function teleupdate()
+    {
+
+        $keyboard = [
+            ['ثبت نام', 'ورود به سایت', 'فعال سازی'],
+        ];
+        $telegram = new Api(config('telegram.bots.mybot.token'));
+
+
+        $response = $telegram->getUpdates();
+        //$response = $telegram->getUpdates();
+        dd($response);
+        foreach ($response as $re)
+        {
+            if($re->message->text == "ثبت نام") {
+                $response = $telegram->sendMessage(['chat_id' => $re->message->from->id, 'text' => 'Hello Worlddsdssd']);
+            }
+        }
+        //$response = $telegram->sendMessage(['chat_id' => '324083208', 'text' => 'Hello World']);
+
+        //$messageId = $response->getMessageId();
+
+    }
+
 }

@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('mobile')->unique();
             $table->string('title')->nullable();
             $table->string('api_key')->nullable();
@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->enum('level',['admin','user','staff'])->default('user');
             $table->enum('active',['yes','no'])->default('yes');
             $table->string('password');
+            $table->string('telegram_user_id')->nullable();
             $table->text('note')->nullable();
             $table->rememberToken();
             $table->timestamps();

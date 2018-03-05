@@ -41,7 +41,10 @@ Route::post('/file/insert', 'FileController@insert')->name('file.insert');
 Route::get('/file/view/{id}', 'FileController@view')->name('file.view');
 Route::get('/file/add-cart/{id}', 'FileController@addCart')->name('file.add-cart');
 Route::get('/file/remove-cart/{id}', 'FileController@removeCart')->name('file.remove-cart');
-Route::get('/file/download/{id}', 'FileController@download')->name('file.download')->middleware('auth');
+Route::get('/file/download/{id}', 'FileController@download')->name('file.download');
+
+Route::get('/file/tele', 'FileController@tele')->name('file.tele');
+Route::get('/file/teleupdate', 'FileController@teleupdate')->name('file.teleupdate');
 
 
 Route::get('/article', 'ArticleController@index')->name('article');

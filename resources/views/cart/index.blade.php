@@ -15,7 +15,6 @@
                         <a href="{{ route('file')  }}" class="btn btn-primary pull-left"><i class="fa fa-shopping-basket"></i> ادامه خرید</a>
                     </div>
                 </div>
-
                 <div class="list-group">
                     @foreach(Cart::content() as $item)
                     <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -29,7 +28,6 @@
                     </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>
