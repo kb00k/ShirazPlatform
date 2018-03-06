@@ -131,7 +131,7 @@
                 @endforeach
                 </ul>
                 <div class="mr-auto">
-                    <a href="https://shirazsoft.com">قدرت گرفته از ShirazPlatform محصول گروه نرم افزاری شیراز</a>
+                    <a href="https://shirazsoft.com" target="_blank">قدرت گرفته از گروه نرم افزار شیراز</a>
                 </div>
             </div>
         </nav>

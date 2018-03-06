@@ -54,6 +54,7 @@ class ArticleController extends Controller
         $article->text = $request->text;
         $article->category_id = $request->category_id;
         $article->save();
+        Cache::forget('article_'.$article->id);
         flash('مقاله با موفقیت ایجاد شد.')->success();
         return redirect()->route('admin.article');
     }
@@ -71,6 +72,7 @@ class ArticleController extends Controller
         $article->text = $request->text;
         $article->category_id = $request->category_id;
         $article->save();
+        Cache::forget('article_'.$article->id);
         flash('صفحه با موفقیت ویرایش شد.')->success();
         return redirect()->route('admin.article.edit',['id' => $article->id]);
     }
@@ -80,6 +82,7 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $article->delete();
         flash('مقاله با موفقیت حذف شد.')->success();
+        Cache::forget('article_'.$article->id);
         return redirect()->route('admin.article');
     }
 }

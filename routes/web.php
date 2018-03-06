@@ -39,6 +39,7 @@ Route::get('/file/type/{type}', 'FileController@type')->name('file.type');
 Route::get('/file/create', 'FileController@create')->name('file.create');
 Route::post('/file/insert', 'FileController@insert')->name('file.insert');
 Route::get('/file/view/{id}', 'FileController@view')->name('file.view');
+Route::get('/file/view/{id}/{slug}', 'FileController@slug')->name('file.slug');
 Route::get('/file/add-cart/{id}', 'FileController@addCart')->name('file.add-cart');
 Route::get('/file/remove-cart/{id}', 'FileController@removeCart')->name('file.remove-cart');
 Route::get('/file/download/{id}', 'FileController@download')->name('file.download');
@@ -49,6 +50,7 @@ Route::get('/file/teleupdate', 'FileController@teleupdate')->name('file.teleupda
 
 Route::get('/article', 'ArticleController@index')->name('article');
 Route::get('/article/{id}', 'ArticleController@view')->name('article.view');
+Route::get('/article/{id}/{slug}', 'ArticleController@view')->name('article.slug');
 
 Route::get('/notification', 'NotificationController@index')->name('notification');
 

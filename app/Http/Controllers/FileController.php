@@ -51,6 +51,13 @@ class FileController extends Controller
         return view('file.view',['categories'=> $categories, 'file' => $file]);
     }
 
+    public function slug($id, $slug)
+    {
+        $file = File::findOrFail($id);
+        $categories = Category::where('type','File')->get();
+        return view('file.view',['categories'=> $categories, 'file' => $file]);
+    }
+
     public function insert(Request $request)
     {
         $this->middleware(['auth','admin']);

@@ -24,12 +24,6 @@ class CreateMenusTable extends Migration
             $table->timestamps();
         });
         DB::table('menus')->insert([
-            'title' => 'انجمن',
-            'route' => 'forum',
-            'icon' => 'fa fa-comments-o',
-            'position' => 'navbar-bottom',
-        ]);
-        DB::table('menus')->insert([
             'title' => 'تماس با ما',
             'route' => 'contact-us',
             'icon' => 'fa fa-envelope-o',
