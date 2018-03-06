@@ -26,7 +26,8 @@ class CreateUsersTable extends Migration
             $table->enum('level',['admin','user','staff'])->default('user');
             $table->enum('active',['yes','no'])->default('yes');
             $table->string('password');
-            $table->string('telegram_user_id')->nullable();
+            $table->string('telegram_user_id')->unique()->nullable();
+            $table->string('telegram_password')->unique()->nullable();
             $table->text('note')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -39,6 +40,7 @@ class CreateUsersTable extends Migration
             'title' => 'مدیر نرم افزار شیراز',
             'level' => 'admin',
             'active' => 'yes',
+            'telegram_password' => '123321',
             'password' => Hash::make('p@ssw0rd'),
         ]);
     }
