@@ -32,6 +32,8 @@ Route::get('/free-pay', 'FreePayController@index')->name('free-pay');
 Route::post('/free-pay/start', 'FreePayController@start')->name('free-pay.start');
 Route::any('/free-pay/callback', 'FreePayController@callback')->name('free-pay.callback');
 
+Route::get('/free-pay/tele', 'FreePayController@sendTele')->name('free-pay.sendTele');
+
 
 Route::get('/file', 'FileController@index')->name('file');
 Route::get('/file/category/{id}', 'FileController@category')->name('file.category');

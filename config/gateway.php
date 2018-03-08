@@ -7,6 +7,9 @@ return [
     // If you want Gateway not set timezone, just leave it empty
     //--------------------------------
     'timezone' => 'Asia/Tehran',
+    'soap' => array(
+        'attempts' => 2 // Attempts if soap connection is fail
+    ),
     //--------------------------------
     // Receipt gateway
     //--------------------------------
@@ -152,11 +155,11 @@ return [
     // IranKish gateway
     //--------------------------------
     'irankish' => array(
-        'enable' => 'no',
+        'enable' => 'yes',
         'account_id' => '2',
         'title' => 'ایران کیش',
-        'merchant-id' => '',
-        'sha1-key' => '',
+        'merchant-id' => 'C7AE',
+        'sha1-key' => '22338240992352910814917221751200141041845518824222260',
         'description' => 'description',
         'callback-url' => '/callback'
     ),

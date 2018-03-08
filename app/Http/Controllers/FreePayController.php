@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Transaction;
+use Illuminate\Support\Facades\Auth;
 use Shirazsoft\Gateway\Gateway;
 use Shirazsoft\Gateway\Irankish\IrankishException;
 use Shirazsoft\Gateway\Payir\PayirSendException;
@@ -21,6 +23,8 @@ use Shirazsoft\Gateway\Exceptions\RetryException;
 use Shirazsoft\Gateway\Exceptions\PortNotFoundException;
 use Shirazsoft\Gateway\Exceptions\InvalidRequestException;
 use Shirazsoft\Gateway\Exceptions\NotFoundTransactionException;
+use App\Notifications\FreePaid;
+use Illuminate\Support\Facades\Notification;
 
 class FreePayController extends Controller
 {
@@ -101,6 +105,15 @@ class FreePayController extends Controller
             $transaction->amount = session('amount');
             $transaction->name = session('name');
             $transaction->save();
+
+
+
+            if(Auth::check()) {
+                $user = User::findOrFail(Auth::user()->id);
+
+                Notification::send($user, new FreePaid($transaction, $user));
+            }
+
             flash('پرداخت با موفقیت انجام شد.')->success();
             return view('free-pay.callback',['trackingCode'=>$trackingCode,'transaction_id'=>$transaction->id]);
         } catch (Exception $e) {
@@ -137,6 +150,16 @@ class FreePayController extends Controller
             flash($e->getMessage())->error();
         }
         return redirect()->route('free-pay');
+    }
+
+    public function sendTele()
+    {
+        $transaction = Transaction::findOrFail(1);
+        if(Auth::check()) {
+            $user = User::findOrFail(Auth::user()->id);
+
+            Notification::send($user, new FreePaid($transaction, $user));
+        }
     }
 
 }

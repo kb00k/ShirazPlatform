@@ -139,7 +139,6 @@ class CreateSettingsTable extends Migration
             'type' => 'select-table',
             'options' => 'pages,title'
         ]);
-
         DB::table('settings')->insert([
             'title' => 'مدیر اصلی سایت',
             'category_id' => '1',
@@ -148,7 +147,6 @@ class CreateSettingsTable extends Migration
             'type' => 'select-table',
             'options' => 'users,name'
         ]);
-
         DB::table('settings')->insert([
             'title' => 'فعال بودن فیش بانکی',
             'category_id' => '2',
@@ -295,7 +293,6 @@ class CreateSettingsTable extends Migration
             'key' => 'gateway.saman.password',
             'type' => 'text-ltr',
         ]);
-
         DB::table('settings')->insert([
             'title' => 'فعال بودن مبنا کارت',
             'category_id' => '2',
@@ -332,7 +329,6 @@ class CreateSettingsTable extends Migration
             'key' => 'gateway.saderat.terminal-id',
             'type' => 'text-ltr',
         ]);
-
         DB::table('settings')->insert([
             'title' => 'کلید عمومی مبنا کارت',
             'category_id' => '2',
@@ -347,6 +343,37 @@ class CreateSettingsTable extends Migration
             'key' => 'gateway.saderat.private-key',
             'type' => 'file',
         ]);
+
+        DB::table('settings')->insert([
+            'title' => 'فعال بودن ایران کیش',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.irankish.enable',
+            'type' => 'yesno',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'حساب متصل به ایران کیش',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.irankish.account_id',
+            'type' => 'select-table',
+            'options' => 'accounts,title',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'Merchant ID ایران کیش',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.irankish.merchant-id',
+            'type' => 'text-ltr',
+        ]);
+        DB::table('settings')->insert([
+            'title' => 'SHA1 KEY ایران کیش',
+            'category_id' => '2',
+            'description' => '',
+            'key' => 'gateway.irankish.sha1-key',
+            'type' => 'text-ltr',
+        ]);
+
 
         //TODO: Add Other gateway and settings.
     }
