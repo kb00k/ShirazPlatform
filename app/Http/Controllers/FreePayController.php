@@ -109,8 +109,7 @@ class FreePayController extends Controller
 
 
             if(Auth::check()) {
-                $user = User::findOrFail(Auth::user()->id);
-
+                $user = Auth::user();
                 Notification::send($user, new FreePaid($transaction, $user));
             }
 
@@ -156,8 +155,7 @@ class FreePayController extends Controller
     {
         $transaction = Transaction::findOrFail(1);
         if(Auth::check()) {
-            $user = User::findOrFail(Auth::user()->id);
-
+            $user = Auth::user();
             Notification::send($user, new FreePaid($transaction, $user));
         }
     }

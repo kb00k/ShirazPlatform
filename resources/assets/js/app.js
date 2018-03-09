@@ -21,7 +21,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('notification-navbar-component.vue', require('./components/NotificationNavbarComponent.vue'));
+Vue.component('notification-navbar-component', require('./components/NotificationNavbarComponent.vue'));
 
 const app = new Vue({
     el: '#app'
