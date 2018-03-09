@@ -55,6 +55,8 @@ Route::get('/article/{id}', 'ArticleController@view')->name('article.view');
 Route::get('/article/{id}/{slug}', 'ArticleController@view')->name('article.slug');
 
 Route::get('/notification', 'NotificationController@index')->name('notification');
+Route::get('/notification/count-unread', 'NotificationController@countUnread')->name('notification.count-unread');
+Route::get('/notification/get-unread', 'NotificationController@getUnread')->name('notification.get-unread');
 
 
 Route::get('/ticket/create', 'TicketController@create')->name('ticket.create');

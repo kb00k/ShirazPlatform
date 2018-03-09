@@ -8,6 +8,7 @@ use App\Article;
 use App\Category;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -53,6 +54,7 @@ class ArticleController extends Controller
         $article->description = $request->description;
         $article->text = $request->text;
         $article->category_id = $request->category_id;
+        $article->user_id = Auth::user()->id;
         $article->save();
         Cache::forget('article_'.$article->id);
         flash('مقاله با موفقیت ایجاد شد.')->success();

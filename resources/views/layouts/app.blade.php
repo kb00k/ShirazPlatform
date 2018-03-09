@@ -56,7 +56,7 @@
                         <!-- Authentication Links -->
                         @if(Cart::count())
                             <li>
-                                <a class="nav-link{{ Request::segment(1) == 'cart' ? ' active' : '' }}" href="{{ route('cart') }}"><i class="fa fa-shopping-basket"></i> سبد خرید<span class="badge badge-pill badge-dark">{{Cart::count()}}</span></a>
+                                <a class="nav-link{{ Request::segment(1) == 'cart' ? ' active' : '' }}" href="{{ route('cart') }}"><i class="fa fa-shopping-basket"></i> سبد خرید<span class="badge badge-pill badge-info">{{Cart::count()}}</span></a>
                             </li>
                         @endif
                         @guest
@@ -65,7 +65,7 @@
                                 <li><a class="nav-link{{ Request::segment(1) == 'register' ? ' active' : '' }}" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> ثبت نام</a></li>
                             @endif
                         @else
-                            <li><a class="nav-link{{ Request::segment(1) == 'notification' ? ' active' : '' }}" href="{{ route('notification') }}"><i class="fa fa-bullhorn"></i> اطلاعیه ها</a></li>
+                            <li><a class="nav-link{{ Request::segment(1) == 'notification' ? ' active' : '' }}" href="{{ route('notification') }}"><i class="fa fa-bullhorn"></i> اطلاعیه ها<notification-navbar-component.vue></notification-navbar-component.vue></a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-user-circle-o"></i> {{ Auth::user()->name }} <span class="caret"></span>
