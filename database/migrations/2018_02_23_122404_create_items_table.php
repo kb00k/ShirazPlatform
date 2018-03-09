@@ -22,8 +22,8 @@ class CreateItemsTable extends Migration
             $table->integer('category_id');
             $table->enum('enable',['yes','no'])->default('yes');
             $table->enum('asset',['yes','no'])->default('no');
-            $table->string('model')->nullable();
-            $table->integer('model_id')->nullable();
+            $table->string('factory')->nullable();
+            $table->integer('factory_id')->nullable();
             $table->double('inventory')->nullable();
             $table->timestamps();
             $table->softDeletes();

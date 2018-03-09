@@ -15,14 +15,15 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('source')->nullable();
             $table->integer('user_id');
             $table->integer('category_id');
+            $table->integer('item_id')->nullable();
             $table->integer('version_id')->nullable();
             $table->enum('type',['free','paid'])->default('paid');
             $table->decimal('price', 15, 0)->nullable();
-            $table->longText('text');
+            $table->longText('text')->nullable();
             $table->text('description')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();

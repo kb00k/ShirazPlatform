@@ -16,4 +16,9 @@ class Item extends Model
     {
         return $this->hasMany('App\Record');
     }
+
+    public function file()
+    {
+        return $this->hasOne('App\File');
+    }
 }

@@ -71,6 +71,7 @@ class FileController extends Controller
             'version_description' => 'required|string',
             'version_name' => 'required|string'
         ]);
+
         $file = new File();
         $file->title = $request->title;
         $file->category_id = $request->category_id;
@@ -91,16 +92,20 @@ class FileController extends Controller
         $version->size = $request->file('version_source')->getSize();
         $version->save();
 
-        $file->version_id = $version->id;
-        $file->save();
+
 
         $item = new Item();
         $item->title = $file->title;
-        $item->model = 'File';
+        $item->factory = 'File';
         $item->category_id  = 10;
-        $item->model_id = $file->id;
+        $item->factory_id = $file->id;
         $item->sale_price = $file->price;
         $item->save();
+
+        $file->item_id = $item->id;
+        $file->version_id = $version->id;
+        $file->save();
+
         flash('فایل با موفقیت ایجاد شد.')->success();
         return redirect()->route('file.view',['id'=>$file->id]);
     }
@@ -116,7 +121,7 @@ class FileController extends Controller
             }
         }
         if ($select == 0) {
-            Cart::add($file->id, $file->title, 1, $file->price,['description' => $file->description]);
+            Cart::add($file->item_id, $file->title, 1, $file->price,['description' => $file->description, 'file_id'=>$file->id]);
             flash("فایل " . $file->title . " به سبد خرید اضافه شد.")->success();
         } else {
             flash("فایل مورد نظر در سبد خرید شما موجود است.")->warning();
